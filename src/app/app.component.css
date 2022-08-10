@@ -1,0 +1,47 @@
+.toHidden{
+    display: none;
+}
+
+.terminal {
+    position: relative;
+    width: 100%;
+    border-radius: 6px;
+    padding: 2rem 0 1rem 0;
+    margin: 1.5rem 0;
+    overflow: hidden;
+    background-color: rgb(15, 15, 16);
+    color: white;
+  }
+  
+  .terminal::before {
+    content: "🔴🟡🟢";
+    font-size: small;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: rgb(58, 58, 58);
+    color: #c2c3c4;
+    width: 100%;  
+    line-height: 0;
+    padding: 14px 0;
+    text-indent: 4px;
+  }
+
+.scale-in-center {
+    animation: scale-in-center 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+
+
+@keyframes scale-in-center {
+    0% {
+        -webkit-transform: scale(0);
+        transform: scale(0);
+        opacity: 1;
+    }
+
+    100% {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+        opacity: 1;
+    }
+}

@@ -11,7 +11,7 @@
             placeholder="Aquí el broker MQTT"
             formControlName="brokerHost"
           />
-          <small>Por ejemplo public.mqtthq.com</small>
+          <small>Por ejemplo test.mosquitto.org</small>
         </label>
         <label for="">
           Puerto
@@ -20,7 +20,7 @@
             placeholder="Aquí el puerto"
             formControlName="brokerPort"
           />
-          <small>Por ejemplo 8083</small>
+          <small>Por ejemplo 8081 para conexión cifrada u 8080 sin cifrar</small>
         </label>
 
         <button id="connectButtonDOMElement" type="submit" [disabled]="connectionForm.invalid" [class.secondary] = "connectionForm.invalid">
@@ -44,7 +44,7 @@
               SUBSCRIBIR
             </button>
           </form>
-          <form [formGroup]="messageForm" (submit)="toSendMessage()" *ngIf="topicSub && !topicSub.closed">         
+          <form [formGroup]="messageForm" (submit)="toSendMessage()">         
             <label for="">
               Mensaje a enviar
               <input

@@ -14,7 +14,7 @@
   }
   
   .terminal::before {
-    content: "🔴🟡🟢";
+    content: "🔘🔘🔘";
     font-size: small;
     position: absolute;
     top: 0;

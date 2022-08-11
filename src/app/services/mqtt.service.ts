@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { IMqttMessage, MqttConnectionState, MqttService, IMqttServiceOptions } from 'ngx-mqtt';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 import { formatHour } from '../helpers/date.helper';
 
 @Injectable({
@@ -18,7 +19,7 @@ export class MyMqttService {
     const MQTT_SERVICE_OPTIONS: IMqttServiceOptions = {
       hostname: host,
       port,
-      protocol: "ws",
+      protocol: environment.production?'wss':'ws',
       path: '/mqtt'
     };
     this.ngxMqttService.connect(MQTT_SERVICE_OPTIONS);

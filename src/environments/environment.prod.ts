@@ -1,8 +1,7 @@
 export const environment = {
   mqtt: {
-    server: 'public.mqtthq.com',
-    protocol: 'ws',
-    port: 8083,
+    server: 'test.mosquitto.org',    
+    port: 8081,
   },
   production: true,
 };

@@ -4,8 +4,7 @@
 
 export const environment = {
   mqtt: {
-		server: 'public.mqtthq.com',
-		protocol: "ws",
+		server: 'public.mqtthq.com',		
 		port: 8083
 	},
   production: false

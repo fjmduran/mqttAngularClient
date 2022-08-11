@@ -33,8 +33,8 @@ export class AppComponent {
 
   constructor(private fb: FormBuilder, private mqttService: MyMqttService) {
     this.connectionForm = this.fb.group({
-      brokerHost: new FormControl('public.mqtthq.com', [Validators.required]),
-      brokerPort: new FormControl(8083, [
+      brokerHost: new FormControl('test.mosquitto.org', [Validators.required]),
+      brokerPort: new FormControl(8081, [
         Validators.required,
         Validators.min(0),
         Validators.max(9999),

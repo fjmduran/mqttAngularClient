@@ -22,6 +22,22 @@
           />
           <small>Por ejemplo 8081 para conexión cifrada u 8080 sin cifrar</small>
         </label>
+        <label for="">
+          Usuario
+          <input
+            type="text"
+            placeholder="Usuario"
+            formControlName="user"
+          />          
+        </label>
+        <label for="">
+          Contraseña
+          <input
+            type="password"
+            placeholder="Contraseña"
+            formControlName="password"
+          />          
+        </label>
 
         <button id="connectButtonDOMElement" type="submit" [disabled]="connectionForm.invalid" [class.secondary] = "connectionForm.invalid">
           CONECTAR

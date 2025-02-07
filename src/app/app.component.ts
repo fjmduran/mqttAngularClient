@@ -39,6 +39,8 @@ export class AppComponent {
         Validators.min(0),
         Validators.max(9999),
       ]),
+      user: new FormControl('',),
+      password: new FormControl('',),
     });
     this.topicForm = this.fb.group({
       mqttTopic: new FormControl('/fjmduran/test', [
@@ -63,15 +65,17 @@ export class AppComponent {
   toConnect() {
     const hostName: string = this.connectionForm.get('brokerHost')?.value;
     const port: number = this.connectionForm.get('brokerPort')?.value;
+    const user: string = this.connectionForm.get('user')?.value;
+    const password: string = this.connectionForm.get('password')?.value;
 
     if (this.mqttConnectionSub && !this.mqttConnectionSub.closed) {
       this.mqttConnectionSub.unsubscribe();
       this.writeLog('🔴 CONEXIÓN CERRADA');
       this.changeConnectionStatus('desconectado');
       return;
-    }
+    } 
     this.mqttConnectionSub = this.mqttService
-      .connect(hostName, port)
+      .connect(hostName, port,user,password)
       .subscribe((connectionState: MqttConnectionState) => {
         switch (connectionState) {
           case MqttConnectionState.CLOSED:

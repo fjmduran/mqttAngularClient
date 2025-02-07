@@ -1,9 +1,9 @@
 {
   "name": "mqtt",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "debug": "ng serve",
     "build": "ng build",
     "deploy":"ng build && firebase deploy --only hosting",
     "watch": "ng build --watch --configuration development",

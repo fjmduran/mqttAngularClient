@@ -15,12 +15,14 @@ export class MyMqttService {
   
   }
 
-  public connect(host:string, port:number):Observable<MqttConnectionState>{
+  public connect(host:string, port:number,user:string,password:string):Observable<MqttConnectionState>{
     const MQTT_SERVICE_OPTIONS: IMqttServiceOptions = {
       hostname: host,
       port,
       protocol: environment.production?'wss':'ws',
-      path: '/mqtt'
+      path: '/mqtt',
+      username:user,
+      password
     };
     this.ngxMqttService.connect(MQTT_SERVICE_OPTIONS);
 

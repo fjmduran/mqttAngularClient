@@ -54,6 +54,25 @@ export class AppComponent {
         Validators.minLength(1),
       ]),
     });
+
+    if (localStorage.getItem('mqttHost')) {
+      this.connectionForm.get('brokerHost')?.setValue(
+        localStorage.getItem('mqttHost')
+      );
+    }
+    if (localStorage.getItem('mqttPort')) {
+      this.connectionForm.get('brokerPort')?.setValue(
+        localStorage.getItem('mqttPort')
+      );
+    }
+    if (localStorage.getItem('mqttUser')) {
+      this.connectionForm.get('user')?.setValue(localStorage.getItem('mqttUser'));
+    }
+    if (localStorage.getItem('mqttPassword')) {
+      this.connectionForm.get('password')?.setValue(
+        localStorage.getItem('mqttPassword')
+      );
+    }
   }
 
   ngOnInit() {
@@ -67,6 +86,11 @@ export class AppComponent {
     const port: number = this.connectionForm.get('brokerPort')?.value;
     const user: string = this.connectionForm.get('user')?.value;
     const password: string = this.connectionForm.get('password')?.value;
+
+    localStorage.setItem('mqttHost', hostName);
+    localStorage.setItem('mqttPort', port.toString());
+    localStorage.setItem('mqttUser', user);
+    localStorage.setItem('mqttPassword', password);
 
     if (this.mqttConnectionSub && !this.mqttConnectionSub.closed) {
       this.mqttConnectionSub.unsubscribe();

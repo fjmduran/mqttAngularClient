@@ -1,10 +1,10 @@
 {
   "name": "mqtt",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "scripts": {
     "ng": "ng",
     "debug": "ng serve",
-    "build": "ng build",
+    "build": "ng build --configuration=production --output-hashing=all",
     "deploy":"ng build && firebase deploy --only hosting",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"

@@ -35,7 +35,7 @@ export class MyMqttService {
 
   sendmsg(topicName:string, message:string): void {
     // use unsafe publish for non-ssl websockets
-    this.ngxMqttService.unsafePublish(`${topicName}`, `${message}`, { qos: 2, retain: true })
+    this.ngxMqttService.unsafePublish(`${topicName}`, `${message}`, { qos: 2 })
     //qos: 0 como mucho una
     //qos: 1 como mínimo una
     //qos: 2 justo una
